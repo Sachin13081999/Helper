@@ -2,6 +2,8 @@ import Header from './Header';
 import themes from './themes';
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components'
 import {useState, createContext} from 'react';
+
+const App =createContext();
 const Layout = ({children}) => {
   const [theme, setTheme]= useState('light');
 
@@ -10,6 +12,7 @@ const Layout = ({children}) => {
   }
 
   return (
+    <App.Provider value={changeTheme}>
     <ThemeProvider theme={themes[theme]}>
      <LayoutWrapper onClick={changeTheme}>
         <GlobalStyle/>
@@ -17,12 +20,14 @@ const Layout = ({children}) => {
         {children}
      </LayoutWrapper>
     </ThemeProvider>
+    </App.Provider>
   )
 }
 const GlobalStyle= createGlobalStyle`
 body{
   margin:0;
   padding:0;
+  overflow-x: hidden;
 }
 `;
 
@@ -33,4 +38,5 @@ const LayoutWrapper =styled.div`
    color: ${(props) => props.theme.color};
 
 `;
-export default Layout
+export default Layout;
+export {App};
