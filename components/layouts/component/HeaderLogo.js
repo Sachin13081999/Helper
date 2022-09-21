@@ -6,10 +6,12 @@ const HeaderLogo = () => {
   )
 }
 const Logo = styled.h1`
-font-weight:bold;
-font-size:30px;
-margin-left:10px;
-font-family:'poppins';
+  font-weight: normal;
+  font-size: 40px;
+  margin-left: 11px;
+  font-family: 'Praise';
+  letter-spacing: 3px;
+  cursor: pointer;
 `
 
 export default HeaderLogo
