@@ -87,4 +87,4 @@ const Balance = styled.h2`
 `
 
 export default Wallet;
-
+;
